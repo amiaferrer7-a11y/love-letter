@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ffe6ee;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+.envelope{
+    width:280px;
+    height:180px;
+    background:#ff9db5;
+    position:relative;
+    cursor:pointer;
+    border-radius:0 0 10px 10px;
+    transition:.5s;
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:90px solid #ff6f91;
+    transform-origin:top;
+    transition:.6s;
+}
+
+.letter{
+    position:absolute;
+    width:240px;
+    height:300px;
+    background:white;
+    left:20px;
+    top:20px;
+    border-radius:10px;
+    padding:20px;
+    box-sizing:border-box;
+    transform:translateY(120px);
+    opacity:0;
+    transition:1s;
+}
+
+.open .flap{
+    transform:rotateX(180deg);
+}
+
+.open .letter{
+    transform:translateY(-170px);
+    opacity:1;
+}
+
+h2{
+    color:#ff4f7b;
+    text-align:center;
+}
+
+p{
+    color:#444;
+    line-height:1.7;
+}
+
+.heart{
+    position:absolute;
+    color:#ff4f7b;
+    animation:up 5s linear infinite;
+}
+
+@keyframes up{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()">
+<div class="flap"></div>
+
+<div class="letter">
+<h2>❤️ Hi Baby ❤️</h2>
+
+<p>
+I love you so much, baby. ❤️<br><br>
+
+Please stay with me.<br><br>
+
+You make my world brighter every single day.
+I don't want to lose you because you're one of the best things that ever happened to me.<br><br>
+
+No matter what happens, I'll always appreciate you and the love you give me.<br><br>
+
+I hope you'll continue choosing me, just as I'll continue choosing you.<br><br>
+
+I love you so much, baby.
+Please stay with me... Forever. ❤️🥹
+</p>
+
+</div>
+</div>
+
+<script>
+
+function openLetter(){
+document.querySelector(".envelope").classList.toggle("open");
+}
+
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(20+Math.random()*25)+"px";
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),5000);
+},300);
+
+</script>
+
+</body>
+</html>
